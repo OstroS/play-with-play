@@ -1,8 +1,20 @@
-@(message: String)
+@(links : List[Link])
 
 @main("Welcome to Play") {
-@message
 
-  <!--   @play20.welcome(message)-->  
+<p>Current links amount: @links.length</p>
+
+<ul>
+        @links.map { link =>
+            <li>
+                @link.url; @link.description; tags=&#123;@link.tags.map { tag =>
+                	@tag;
+                	}&#125;
+                
+            
+            </li>
+        }
+    </ul>
+   
 
 }

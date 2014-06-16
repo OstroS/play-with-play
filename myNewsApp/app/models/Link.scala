@@ -12,11 +12,17 @@ object Link {
   /**
    * Returns list of all links
    */
-  def getAll() : List[Link] = Nil
+  def getAll() : List[Link] = LinkDataSource.getAll()
   
   /**
    * Creates a link
    */
   def create(link: Link) = {}
   
+}
+
+object LinkDataSource {
+	val MockedLinksList = List(Link(0, "link1", "desc1", List("tag1", "tag2")))
+  
+	def getAll() : List[Link] = MockedLinksList
 }
