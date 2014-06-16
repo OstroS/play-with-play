@@ -21,8 +21,14 @@ object Link {
   
 }
 
+/**
+ * Mocked data generator
+ */
 object LinkDataSource {
-	val MockedLinksList = List(Link(0, "link1", "desc1", List("tag1", "tag2")))
+	lazy val MockedLinksList = ( 
+	 for { 
+	  id <- 0 to 50
+	} yield Link(id, "http://url/" + id, "desc_" + id, List("tag", "tag_" + id))) toList
   
 	def getAll() : List[Link] = MockedLinksList
 }
