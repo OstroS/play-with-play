@@ -12,6 +12,8 @@ import play.api.mvc._
 object LinksController extends Controller {
   
   def index = Action {
-    Ok("Your new application is ready.")
+    Ok(views.html.link("Your new application is ready."))
   }
+  
+  
 }
