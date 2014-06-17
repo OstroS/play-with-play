@@ -13,6 +13,16 @@ object Link {
    * Returns list of all links
    */
   def getAll() : List[Link] = LinkDataSource.getAll()
+
+  /**
+   * Gets last N elements of Links collection
+   */
+  def getLastNElements(N: Int) : List[Link] = (
+    for {
+      i <- 0 until getAll().length
+      if (getAll().length - i) <= N
+    } yield getAll()(i)) toList
+  
   
   /**
    * Creates a link

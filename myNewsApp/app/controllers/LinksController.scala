@@ -13,7 +13,7 @@ import models.Link
 object LinksController extends Controller {
   
   def index = Action {
-    Ok(views.html.link(Link.getAll()))
+    Ok(views.html.link(Link.getLastNElements(10)))
   }
   
   
