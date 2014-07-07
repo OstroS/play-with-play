@@ -3,6 +3,8 @@ package controllers
 import play.api._
 import play.api.mvc._
 import models.Link
+import play.api.data._
+import play.api.data.Forms._
 
 /**
  * Purpose of this controller is to:
@@ -13,8 +15,16 @@ import models.Link
 object LinksController extends Controller {
   
   def index = Action {
-    Ok(views.html.link(Link.getLastNElements(10)))
+    Ok(views.html.link(Link.getLastNElements(10), urlForm))
   }
   
+
+
+  def create = Action { implicit request => 
+    Ok("request: " + request)
+    }
   
+  
+  val urlForm = Form(
+	"url" -> text)
 }

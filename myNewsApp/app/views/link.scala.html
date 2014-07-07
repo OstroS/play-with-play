@@ -1,4 +1,6 @@
-@(links : List[Link])
+@(links : List[Link], urlForm: Form[String])
+
+@import helper._
 
 @main("Welcome to Play") {
 
@@ -16,5 +18,13 @@
         }
     </ul>
    
-
+   <h2>Add a new link</h2>
+    
+    @form(routes.LinksController.create) {
+        
+        @inputText(urlForm("url"))   
+        <input type="submit" value="Create">
+        
+    }
+           
 }
