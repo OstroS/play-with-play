@@ -27,7 +27,9 @@ object Link {
   /**
    * Creates a link
    */
-  def create(link: Link) = {}
+  def create(link: Link) = {
+    // TODO: add link
+  }
   
 }
 

@@ -19,7 +19,8 @@ object LinksController extends Controller {
   }
 
   def create = Action { implicit request =>
-    Ok("vals=" + urlForm.bindFromRequest.get)
+  	Link.create(urlForm.bindFromRequest.get)
+    Ok(views.html.link(Link.getLastNElements(10), urlForm))
   }
 
   val urlForm = Form(
