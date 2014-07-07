@@ -1,4 +1,4 @@
-@(links : List[Link], urlForm: Form[String])
+@(links : List[Link], urlForm: Form[models.Link])
 
 @import helper._
 
@@ -22,7 +22,8 @@
     
     @form(routes.LinksController.create) {
         
-        @inputText(urlForm("url"))   
+       <p>URL = @inputText(urlForm("url"))</p>
+       <p>Desc = @inputText(urlForm("description"))   
         <input type="submit" value="Create">
         
     }
